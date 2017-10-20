@@ -8,7 +8,6 @@ public class CardCategory {
     private int id;
     private String name;
     private int image;
-    private int test;
 
     public CardCategory(int id, String name, int image) {
         this.id = id;
