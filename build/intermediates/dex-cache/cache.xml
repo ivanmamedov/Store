@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="false"
+        jar="C:\Users\cifracom\.gradle\caches\modules-2\files-2.1\com.google.code.gson\gson\2.8.2\3edcfe49d2c6053a70a2a47e4e1c2f94998a49cf\gson-2.8.2.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.1"
+        sha1="3edcfe49d2c6053a70a2a47e4e1c2f94998a49cf">
+        <dex dex="C:\Users\cifracom\AndroidStudioProjects\Store\app\build\intermediates\pre-dexed\debug\gson-2.8.2_ab644a89d7274f29b19a06edb2ff2dea53ec6e23.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\cifracom\.android\build-cache\8da08277bea098a759777bf3a835ddc9dd396af1\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.1"
+        sha1="e176fd06c2ad5b50a2f5cb4de6000a83a7cb48f5">
+        <dex dex="C:\Users\cifracom\AndroidStudioProjects\Store\app\build\intermediates\pre-dexed\debug\classes_b68e3072059e22d8755b5a70d8066aaaece31f3a.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\cifracom\.android\build-cache\7ad96a9969d0afc00e5463ffbc0d2179f64ecfa5\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.1"
+        sha1="e70a3fed299d84cd868614e11021664d72b8e488">
+        <dex dex="C:\Users\cifracom\AndroidStudioProjects\Store\app\build\intermediates\pre-dexed\debug\classes_994cd1de85cbe6ed9f2bd472e8f26d343dc4a71c.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\cifracom\.gradle\caches\modules-2\files-2.1\com.github.bumptech.glide\glide\3.7.0\9e9eeaf9948ee4d6c3ab354e8dc14368f16994a4\glide-3.7.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.1"
+        sha1="9e9eeaf9948ee4d6c3ab354e8dc14368f16994a4">
+        <dex dex="C:\Users\cifracom\AndroidStudioProjects\Store\app\build\intermediates\pre-dexed\debug\glide-3.7.0_6e696c96bc5559b709cf469fc3e5ddc41c761cf9.jar" />
+    </item>
+
+</items>
