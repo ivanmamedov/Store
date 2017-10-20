@@ -17,6 +17,10 @@ import android.view.View;
 import android.view.ViewGroup;
 
 
+import com.google.gson.Gson;
+
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
@@ -29,7 +33,6 @@ import java.util.concurrent.CopyOnWriteArrayList;
  * A simple {@link Fragment} subclass.
  */
 public class FragmentProducts extends Fragment  {
-    Preferences data;
     RecyclerView recyclerView;
     MyAdapter adapter;
 
@@ -48,23 +51,16 @@ public class FragmentProducts extends Fragment  {
         recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
         RecyclerView.LayoutManager layoutManager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(layoutManager);
-        //List<CardCategory> cardCategories = data.getCardCategory();
+
         ArrayList<CardCategory> cardCategories = new ArrayList<CardCategory>();
 
         cardCategories.add(new CardCategory(0, "Микроволновки", R.drawable.splus45));
         cardCategories.add(new CardCategory(1, "Чайники", R.drawable.splus45));
-        cardCategories.add(new CardCategory(2, "Стиральные машины ооооооооооооооооооооооооооооооооооооооо", R.drawable.splus45));
+        cardCategories.add(new CardCategory(2, "Стиральные машины ", R.drawable.splus45));
         cardCategories.add(new CardCategory(3, "Фены", R.drawable.splus45));
 
         adapter = new MyAdapter(cardCategories, view.getContext());
         recyclerView.setAdapter(adapter);
-
-
-
-       // data.addCardCategory(cardCategory);
-       // adapter.dataSetChanged(data.getCardCategory());
-       // recyclerView.scrollToPosition(data.getCardCategory().size() - 1);
-
 
         return view;
     }
