@@ -30,6 +30,15 @@
     </item>
     <item
         is-multidex="false"
+        jar="C:\Users\cifracom\AndroidStudioProjects\Store\volley-master\build\intermediates\bundles\default\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.1"
+        sha1="4aacb001c0ca65d1e2dbe883cff90ecc8ac8eae6">
+        <dex dex="C:\Users\cifracom\AndroidStudioProjects\Store\app\build\intermediates\pre-dexed\debug\classes_d25990ccfc8882ee1d357e8e527d197a25dc5f58.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="C:\Users\cifracom\.gradle\caches\modules-2\files-2.1\com.github.bumptech.glide\glide\3.7.0\9e9eeaf9948ee4d6c3ab354e8dc14368f16994a4\glide-3.7.0.jar"
         jumboMode="false"
         optimize="true"

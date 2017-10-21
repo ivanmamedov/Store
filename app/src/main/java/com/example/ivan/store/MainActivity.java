@@ -31,7 +31,8 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-
+        ParseTask process = new ParseTask();
+        process.execute();
 
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

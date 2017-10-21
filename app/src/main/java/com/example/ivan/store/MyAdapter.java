@@ -26,6 +26,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     ArrayList<CardCategory> cardList = new ArrayList<>();
     Context ctx;
 
+
     public MyAdapter(ArrayList<CardCategory> cardList, Context ctx){
         this.cardList = cardList;
         this.ctx = ctx;
@@ -50,7 +51,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
             v= LayoutInflater.from(parent.getContext()).inflate(R.layout.item_main_grid, parent,false); */
 
          v = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.item_main, parent, false);
+                .inflate(R.layout.item_main_grid, parent, false);
 
         return new MyViewHolder(v);
     }
@@ -60,13 +61,13 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         holder.cv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(ctx,String.valueOf(cardList.get(position).getId()),Toast.LENGTH_SHORT).show();
+                Toast.makeText(ctx, FragmentProducts.data, Toast.LENGTH_SHORT).show();
             }
         });
         holder.name.setText(cardList.get(position).getName());
-       // Glide.with(ctx).load("http://code.makery.ch/assets/library/javafx-8-tutorial/part1/addressapp-part1.png")
-                //.diskCacheStrategy(DiskCacheStrategy.SOURCE)
-            //   .into(holder.photo);
+       /* Glide.with(ctx).load("http://code.makery.ch/assets/library/javafx-8-tutorial/part1/addressapp-part1.png")
+                .diskCacheStrategy(DiskCacheStrategy.SOURCE)
+               .into(holder.photo); */
         Glide.with(ctx).load(cardList.get(position).getImage())
                 .diskCacheStrategy(DiskCacheStrategy.SOURCE)
                 .into(holder.photo);

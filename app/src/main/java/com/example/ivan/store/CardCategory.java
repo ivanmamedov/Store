@@ -5,21 +5,21 @@ package com.example.ivan.store;
  */
 
 public class CardCategory {
-    private int id;
+    private String id;
     private String name;
-    private int image;
+    private String image;
 
-    public CardCategory(int id, String name, int image) {
+    public CardCategory(String id, String name, String image) {
         this.id = id;
         this.name = name;
         this.image = image;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -31,11 +31,11 @@ public class CardCategory {
         this.name = name;
     }
 
-    public int getImage() {
+    public String getImage() {
         return image;
     }
 
-    public void setImage(int image) {
+    public void setImage(String image) {
         this.image = image;
     }
 }
