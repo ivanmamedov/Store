@@ -1,13 +1,7 @@
 package com.example.ivan.store;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.FragmentManager;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -17,8 +11,14 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import java.util.ArrayList;
-import java.util.List;
+import com.example.ivan.store.fragments.FragmentAccount;
+import com.example.ivan.store.fragments.FragmentBasket;
+import com.example.ivan.store.fragments.FragmentHistory;
+import com.example.ivan.store.fragments.FragmentHome;
+import com.example.ivan.store.fragments.FragmentMessages;
+import com.example.ivan.store.fragments.FragmentProducts;
+import com.example.ivan.store.fragments.FragmentReviews;
+import com.example.ivan.store.fragments.FragmentSettings;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -31,8 +31,11 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        ParseTask process = new ParseTask();
+        ParseTask process = new ParseTask("category");
         process.execute();
+
+        ParseTask processProduct = new ParseTask("productList");
+        processProduct.execute();
 
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

@@ -1,7 +1,8 @@
-package com.example.ivan.store;
+package com.example.ivan.store.adapters;
 
-import android.app.Activity;
 import android.content.Context;
+import android.support.v4.app.FragmentManager;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -12,9 +13,13 @@ import android.widget.Toast;
 
 import com.bumptech.glide.*;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.example.ivan.store.fragments.FragmentProducts;
+import com.example.ivan.store.objects.CardCategory;
+import com.example.ivan.store.MainActivity;
+import com.example.ivan.store.R;
+import com.example.ivan.store.fragments.FragmentProductList;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -22,6 +27,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
  * Created by Ivan on 17.10.2017.
  */
 
+// Для категорий товаров
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     ArrayList<CardCategory> cardList = new ArrayList<>();
     Context ctx;
@@ -57,11 +63,16 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(MyViewHolder holder, final int position) {
+    public void onBindViewHolder(final MyViewHolder holder, final int position) {
         holder.cv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(ctx, FragmentProducts.data, Toast.LENGTH_SHORT).show();
+                FragmentProductList.typeId = "" + FragmentProducts.cardCategories.get(position).getId();
+                FragmentManager fm = ((AppCompatActivity) ctx).getSupportFragmentManager();
+                ((MainActivity) ctx).getSupportActionBar().setTitle(holder.name.getText());
+                FragmentProductList fpl = new FragmentProductList();
+                fm.beginTransaction().replace(R.id.fragment, fpl).commit();
+              //  Toast.makeText(ctx, "" + position, Toast.LENGTH_SHORT).show();
             }
         });
         holder.name.setText(cardList.get(position).getName());

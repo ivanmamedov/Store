@@ -1,40 +1,29 @@
-package com.example.ivan.store;
+package com.example.ivan.store.fragments;
 
 
 import android.app.Application;
-import android.os.AsyncTask;
+import android.content.Context;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.design.widget.NavigationView;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
-import android.support.v7.widget.helper.ItemTouchHelper;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
+
+import com.example.ivan.store.ParseTask;
+import com.example.ivan.store.objects.CardCategory;
+import com.example.ivan.store.adapters.MyAdapter;
+import com.example.ivan.store.R;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.BufferedReader;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.List;
-import java.util.ListIterator;
-import java.util.concurrent.CopyOnWriteArrayList;
 
 
 /**
@@ -46,6 +35,7 @@ public class FragmentProducts extends Fragment  {
     String id;
     String name = "";
     String img_src;
+    String information;
 
     public static String data = "";
 
@@ -67,14 +57,17 @@ public class FragmentProducts extends Fragment  {
             cardCategories.remove(0);
         }
 
+        //cardCategories.add(new CardCategory("1", "Многа многа многа многа чайников", "http://www.olegcherne.ru/i/products_section/520/172_1_teapot.jpg"));
+
         try {
             JSONArray jsonArray = new JSONArray(data);
             for (int i = 0; i < jsonArray.length(); i++) {
                 JSONObject jsonObject = (JSONObject) jsonArray.get(i);
                 id = "" + jsonObject.get("product_type_id");
                 name = "" + jsonObject.get("type_name");
+                information = "" + jsonObject.get("information");
                 img_src = "http://5.189.47.208:3000/" + jsonObject.get("img_src");
-                cardCategories.add(new CardCategory(id, name, img_src));
+                cardCategories.add(new CardCategory(id, name, img_src, information));
 
                /* id =    "id: " + jsonObject.get("product_type_id") + "\n" +
                         "name: " + jsonObject.get("type_name") + "\n" +
