@@ -31,11 +31,11 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        ParseTask process = new ParseTask("category");
-        process.execute();
+     //  ParseTask process = new ParseTask("category");
+     //   process.execute();
 
-        ParseTask processProduct = new ParseTask("productList");
-        processProduct.execute();
+     //   ParseTask processProduct = new ParseTask("productList");
+     //   processProduct.execute();
 
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

@@ -67,10 +67,10 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         holder.cv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                FragmentProductList.typeId = "" + FragmentProducts.cardCategories.get(position).getId();
+               // FragmentProductList.typeId = "" + FragmentProducts.cardCategories.get(position).getId();
                 FragmentManager fm = ((AppCompatActivity) ctx).getSupportFragmentManager();
                 ((MainActivity) ctx).getSupportActionBar().setTitle(holder.name.getText());
-                FragmentProductList fpl = new FragmentProductList();
+                FragmentProductList fpl = new FragmentProductList(cardList.get(position).getId());
                 fm.beginTransaction().replace(R.id.fragment, fpl).commit();
               //  Toast.makeText(ctx, "" + position, Toast.LENGTH_SHORT).show();
             }
