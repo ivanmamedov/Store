@@ -1,5 +1,6 @@
 package com.example.ivan.store;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.design.widget.NavigationView;
@@ -19,6 +20,7 @@ import com.example.ivan.store.fragments.FragmentMessages;
 import com.example.ivan.store.fragments.FragmentProducts;
 import com.example.ivan.store.fragments.FragmentReviews;
 import com.example.ivan.store.fragments.FragmentSettings;
+import com.example.ivan.store.loginregister.LoginActivity;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -92,9 +94,13 @@ public class MainActivity extends AppCompatActivity
             FragmentHome fh = new FragmentHome();
             fm.beginTransaction().replace(R.id.fragment, fh).commit();
         } else if (id == R.id.nav_account) {
-            setTitle("Мой профиль");
+           /* setTitle("Мой профиль");
             FragmentAccount fa = new FragmentAccount();
-            fm.beginTransaction().replace(R.id.fragment, fa).commit();
+            fm.beginTransaction().replace(R.id.fragment, fa).commit(); */
+
+            Intent intent = new Intent(this, LoginActivity.class);
+            startActivity(intent);
+
         } else if (id == R.id.nav_products) {
             setTitle("Каталог товаров");
             FragmentProducts fp = new FragmentProducts();

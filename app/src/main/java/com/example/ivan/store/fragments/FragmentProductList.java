@@ -44,7 +44,8 @@ public class FragmentProductList extends Fragment {
     String productTypeId = "";
 
     String information = "";
-    String imgCount;
+    String imgCount = "";
+    String count = "";
 
     public static String typeId = "";
     public String category_id = "";
@@ -71,10 +72,17 @@ public class FragmentProductList extends Fragment {
 
         new ParseTask().execute();
 
+       /* cardProductList.add(new ProductList("1","Телевизор","30000", "http://www.lg.com/ru/images/televisions/md05601252/gallery/medium_02.jpg", "1","ABC","1"));
+
+        adapter = new ProductListAdapter(cardProductList, getActivity());
+        recyclerView.setAdapter(adapter);
+        adapter.notifyDataSetChanged(); */
+
 
 
         return view;
     }
+
     private class ParseTask extends AsyncTask<String, String, String> {
         String result;
         @Override
@@ -105,6 +113,7 @@ public class FragmentProductList extends Fragment {
             super.onPostExecute(result);
               ArrayList<ProductList> cardProductList = new ArrayList<ProductList>();
 
+
             try {
                 JSONArray jsonArray = new JSONArray(result);
                 for (int i = 0; i < jsonArray.length(); i++) {
@@ -117,9 +126,10 @@ public class FragmentProductList extends Fragment {
 
                     information = "" + jsonObject.get("information");
                     imgCount = "" + jsonObject.get("img_count");
+                    count = "" + jsonObject.get("count");
 
                     if (productTypeId.equals(category_id))
-                        cardProductList.add(new ProductList(id, name, price, img_src, productTypeId, information, imgCount));
+                        cardProductList.add(new ProductList(id, name, price, img_src, productTypeId, information, imgCount, count));
 
                /* id =    "id: " + jsonObject.get("product_type_id") + "\n" +
                         "name: " + jsonObject.get("type_name") + "\n" +
@@ -129,6 +139,8 @@ public class FragmentProductList extends Fragment {
             } catch (JSONException e) {
                 e.printStackTrace();
             }
+
+
 
             adapter = new ProductListAdapter(cardProductList, getActivity());
             recyclerView.setAdapter(adapter);

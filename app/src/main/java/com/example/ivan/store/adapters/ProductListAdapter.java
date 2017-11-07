@@ -1,6 +1,8 @@
 package com.example.ivan.store.adapters;
 
 import android.content.Context;
+import android.support.v4.app.FragmentManager;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -10,13 +12,14 @@ import android.widget.TextView;
 
 import com.bumptech.glide.*;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
-import com.example.ivan.store.objects.CardCategory;
+import com.example.ivan.store.MainActivity;
 import com.example.ivan.store.R;
 import com.example.ivan.store.objects.ProductList;
 
 import java.util.ArrayList;
 
 import de.hdodenhof.circleimageview.CircleImageView;
+import com.example.ivan.store.fragments.FragmentProduct;
 
 /**
  * Created by Ivan on 17.10.2017.
@@ -57,7 +60,10 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
         holder.cv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                FragmentManager fm = ((AppCompatActivity) ctx).getSupportFragmentManager();
+                ((MainActivity) ctx).getSupportActionBar().setTitle(holder.name.getText());
+                FragmentProduct fpl = new FragmentProduct(cardList.get(position));
+                fm.beginTransaction().replace(R.id.fragment, fpl).commit();
                 //  Toast.makeText(ctx, FragmentProducts.data, Toast.LENGTH_SHORT).show();
             }
         });

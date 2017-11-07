@@ -40,4 +40,12 @@ public class CardCategory {
     public void setImage(String image) {
         this.image = image;
     }
+
+    public String getInformation() {
+        return information;
+    }
+
+    public void setInformation(String information) {
+        this.information = information;
+    }
 }

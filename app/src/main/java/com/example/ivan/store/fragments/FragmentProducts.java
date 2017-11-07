@@ -61,12 +61,13 @@ public class FragmentProducts extends Fragment {
         RecyclerView.LayoutManager layoutManager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(layoutManager);
 
-       // while (cardCategories.size() > 0) {
-       //     cardCategories.remove(0);
-       // }
         new ParseTask().execute();
-        //cardCategories.add(new CardCategory("1", "Многа многа многа многа чайников", "http://www.olegcherne.ru/i/products_section/520/172_1_teapot.jpg"));
 
+      /*  cardCategories.add(new CardCategory("1", "Многа многа многа многа чайников", "http://www.olegcherne.ru/i/products_section/520/172_1_teapot.jpg", "ABC"));
+
+        adapter = new MyAdapter(cardCategories, getActivity());
+        recyclerView.setAdapter(adapter);
+        adapter.notifyDataSetChanged(); */
 
 
         //Toast.makeText(getContext(), "", Toast.LENGTH_LONG).show();
@@ -104,6 +105,7 @@ public class FragmentProducts extends Fragment {
             super.onPostExecute(result);
             ArrayList<CardCategory> cardCategories = new ArrayList<CardCategory>();
 
+
             try {
                 JSONArray jsonArray = new JSONArray(result);
                 for (int i = 0; i < jsonArray.length(); i++) {
@@ -123,9 +125,11 @@ public class FragmentProducts extends Fragment {
                 e.printStackTrace();
             }
 
+
             adapter = new MyAdapter(cardCategories, getActivity());
             recyclerView.setAdapter(adapter);
             adapter.notifyDataSetChanged();
+
 
         }
     }

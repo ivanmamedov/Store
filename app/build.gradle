@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 26
-    buildToolsVersion "26.0.1"
+    buildToolsVersion '26.0.2'
     defaultConfig {
         applicationId "com.example.ivan.store"
         minSdkVersion 14
@@ -33,5 +33,6 @@ dependencies {
     compile 'de.hdodenhof:circleimageview:2.2.0'
     compile 'com.github.bumptech.glide:glide:3.7.0'
     compile 'com.google.code.gson:gson:2.8.2'
+    compile 'com.android.volley:volley:1.0.0'
     testCompile 'junit:junit:4.12'
 }
